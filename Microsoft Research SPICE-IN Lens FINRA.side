@@ -1,0 +1,190 @@
+{
+  "id": "36ec9e31-30af-4bc7-a91f-1fa528909117",
+  "version": "2.0",
+  "name": "Microsoft Research SPICE-IN Lens: FINRA",
+  "url": "https://www.finra.org",
+  "tests": [{
+    "id": "6042092b-928a-4aee-9bcf-3ae2aa298aff",
+    "name": "Download Latest FINRA Rule Filing",
+    "commands": [{
+      "id": "540cf8d5-2fa1-4c1f-b9b3-33437f4ec846",
+      "comment": "Open the browser window, and navigate to FINRA's Homepage.",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "777d3d12-cb64-4895-a0ef-7e1384bfea2c",
+      "comment": "Set the screen size to a desktop resolution. This can be customised based on your monitor's resolution.",
+      "command": "setWindowSize",
+      "target": "1512x945",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2972c68-3947-42ae-8c5d-6b00cc166da6",
+      "comment": "Wait till the link, \"Rules & Guidance\" is visible.",
+      "command": "waitForElementVisible",
+      "target": "linkText=Rules & Guidance",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "da96a3d5-bb6e-451c-8dc0-111825e10323",
+      "comment": "Navigate to the \"Rules & Guidance\" page.",
+      "command": "click",
+      "target": "linkText=Rules & Guidance",
+      "targets": [
+        ["linkText=Rules & Guidance", "linkText"],
+        ["css=#finra-homepage-nav-w-megame-menu-link-contentd364ff8f-3347-4ef3-8cb5-0f24583a410d > .sf-depth-1", "css:finder"],
+        ["xpath=//a[contains(text(),'Rules & Guidance')]", "xpath:link"],
+        ["xpath=//li[@id='finra-homepage-nav-w-megame-menu-link-contentd364ff8f-3347-4ef3-8cb5-0f24583a410d']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/rules-guidance')]", "xpath:href"],
+        ["xpath=//div/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Rules & Guidance')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "db4d83f5-b09a-451d-850d-6d27fc139e93",
+      "comment": "Wait till the link, \"The Rulemaking Process\" is visible.",
+      "command": "waitForElementVisible",
+      "target": "linkText=The Rulemaking Process",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "94b39da2-7a58-4cc2-bb32-cbd68b8d5724",
+      "comment": "Navigate to the \"The Rulemaking Process\" page.",
+      "command": "click",
+      "target": "linkText=The Rulemaking Process",
+      "targets": [
+        ["linkText=The Rulemaking Process", "linkText"],
+        ["css=.menu-item--expanded:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=(//a[contains(text(),'The Rulemaking Process')])[2]", "xpath:link"],
+        ["xpath=//div[@id='block-finra-bootstrap-sass-system-main']/div/article/div/div/div[2]/div/div/div/div/div[2]/div/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/rules-guidance/rulemaking-process')])[2]", "xpath:href"],
+        ["xpath=//div/nav/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba2385cc-05b4-4cb4-99d8-49a9679c9920",
+      "comment": "Wait till the link, \"Rule Filings\" is visible.",
+      "command": "waitForElementVisible",
+      "target": "linkText=Rule Filings",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "774fab1d-dc9e-42f9-a1b1-0b1188168a4e",
+      "comment": "Navigate to the \"Rule Filings\" page.",
+      "command": "click",
+      "target": "linkText=Rule Filings",
+      "targets": [
+        ["linkText=Rule Filings", "linkText"],
+        ["css=#the-rulemaking-process-submenu > .nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=(//a[contains(text(),'Rule Filings')])[2]", "xpath:link"],
+        ["xpath=//ul[@id='the-rulemaking-process-submenu']/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/rules-guidance/rule-filings')])[2]", "xpath:href"],
+        ["xpath=//li[3]/ul/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "174652c7-dc32-457c-98c2-476ee446e6bb",
+      "comment": "Wait till the latest rule filing number is visible.",
+      "command": "waitForElementVisible",
+      "target": "css=tr:nth-child(1) > td:nth-child(1) > a",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "255ca93b-6ffd-4fa8-89fb-f0e3f5313c36",
+      "comment": "Store the latest rule filing number into a variable.",
+      "command": "storeText",
+      "target": "css=tr:nth-child(1) > td:nth-child(1) > a",
+      "targets": [],
+      "value": "latestRuleFilingNumber"
+    }, {
+      "id": "b03ff0c6-620c-46cd-9c54-84a73b953947",
+      "comment": "Change the link of the rule filing, removing target of new tab.",
+      "command": "executeScript",
+      "target": "document.querySelector(\"tr:nth-child(1) > td:nth-child(1) > a\").removeAttribute(\"target\");",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "83c60a2a-045a-4559-b18f-81bde277c329",
+      "comment": "Naivgate to the latest rule filing page.",
+      "command": "click",
+      "target": "css=tr:nth-child(1) > td:nth-child(1) > a",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "621c982f-70e3-4448-be5f-23be4817a005",
+      "comment": "Check if the rule filing number's is visible. (i.e. Page has loaded)",
+      "command": "waitForElementVisible",
+      "target": "css=span.red-title",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "eb2df713-1a43-4f3d-a2b5-066c04c31e41",
+      "comment": "Check if the rule filing number stored earlier is present.",
+      "command": "assertText",
+      "target": "css=span.red-title",
+      "targets": [],
+      "value": "${latestRuleFilingNumber}"
+    }, {
+      "id": "ab8409a2-04db-4827-9c30-d04bea4530a5",
+      "comment": "Verify that the \"Text of the Proposed Rule Change\" download link is present.",
+      "command": "verifyElementPresent",
+      "target": "linkText=Text of the Proposed Rule Change",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "96e1b4e1-115a-4108-bff3-e385cdc7dd59",
+      "comment": "Workaround: Selenium doesn't work after starting a download; Injecting JS to reload page after 10s to download the second file. Refer: https://github.com/SeleniumHQ/selenium-ide/issues/898",
+      "command": "executeScript",
+      "target": "setTimeout(function(){window.location.reload(1);}, 10000);",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "452a620f-02de-4730-9067-f13050b3cb27",
+      "comment": "Download the \"Text of the Proposed Rule Change\" for the latest rule filing.",
+      "command": "click",
+      "target": "linkText=Text of the Proposed Rule Change",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "6d95961d-8771-471b-b893-caa09451a460",
+      "comment": "Verify that the \"Federal Register Notice\" download link is present.",
+      "command": "verifyElementPresent",
+      "target": "linkText=Federal Register Notice",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "d8ae0421-a009-421f-a1ad-10af7a07db56",
+      "comment": "Download the \"Federal Register Notice\" for the latest rule filing.",
+      "command": "click",
+      "target": "linkText=Federal Register Notice",
+      "targets": [],
+      "value": "30000"
+    }, {
+      "id": "3ab5ed4b-b301-4013-86dc-4b8b6b4e0278",
+      "comment": "Workaround: Pause for 10s to let download complete, no Selenium native way to capture download status.",
+      "command": "pause",
+      "target": "10000",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "410c5536-a1f7-4215-9413-9f8124c2b98b",
+      "comment": "Close the browser window.",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f11d56e3-bc20-4f10-b85e-ebd16ebf19cd",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["6042092b-928a-4aee-9bcf-3ae2aa298aff"]
+  }],
+  "urls": ["https://www.finra.org/"],
+  "plugins": []
+}
