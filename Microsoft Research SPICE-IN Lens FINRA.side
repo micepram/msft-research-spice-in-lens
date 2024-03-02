@@ -107,7 +107,7 @@
       "value": ""
     }, {
       "id": "83c60a2a-045a-4559-b18f-81bde277c329",
-      "comment": "Naivgate to the latest rule filing page.",
+      "comment": "Navigate to the latest rule filing page.",
       "command": "click",
       "target": "css=tr:nth-child(1) > td:nth-child(1) > a",
       "targets": [],
